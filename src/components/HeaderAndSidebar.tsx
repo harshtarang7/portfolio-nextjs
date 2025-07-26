@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
-import { Sidebar } from "./Sidebar";
-import { Header } from "./Header";
+import { Sidebar } from "./Sidebar/Sidebar";
+import { Header } from "./Header/Header";
 
 export const HeaderAndSidebar = ({children}:{children:React.ReactNode}) => {
   return (
