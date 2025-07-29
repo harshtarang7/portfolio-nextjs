@@ -3,6 +3,15 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import { ThemeProvider as MuiThemeProvider, createTheme, Theme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 
+import { Raleway } from 'next/font/google';
+
+const raleway = Raleway({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
+
+export const backgroundConstantColorLight = '#fcf6f0ff';
+export const backgroundConstantColorDark = '#1C1C1E';
 
 
 // Your existing dark theme
@@ -42,7 +51,7 @@ export const darkTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "var(--font-geist-sans), Arial, sans-serif",
+    fontFamily: `${raleway.style.fontFamily}, Arial, sans-serif`,
     h1: {
       fontSize: "2.5rem",
       fontWeight: 600,
@@ -151,7 +160,7 @@ export const lightTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: "var(--font-geist-sans), Arial, sans-serif",
+    fontFamily: `${raleway.style.fontFamily}, Arial, sans-serif`,
     h1: {
       fontSize: "2.5rem",
       fontWeight: 600,
