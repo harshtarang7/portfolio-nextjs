@@ -5,9 +5,13 @@ import { Brightness5, DensityMedium, NightsStay, Sunny, ToggleOn } from "@mui/ic
 import { Box, Grid, IconButton, Tooltip, useTheme } from "@mui/material";
 import React from "react";
 
-export const Header = () => {
+interface HeaderProps {
+  handleToggleSidebar:()=>void
+}
+export const Header = ({handleToggleSidebar}:HeaderProps) => {
     const theme = useTheme()
-    const {toggleTheme, isDarkMode} = useThemeContext()
+    const {toggleTheme, isDarkMode} = useThemeContext();
+
   return (
     <Grid
       container
@@ -15,12 +19,13 @@ export const Header = () => {
         width: "100%",
         backgroundColor:isDarkMode ? backgroundConstantColorDark: backgroundConstantColorLight,
         justifyContent: "space-between",
-        border:'1px solid #CCC',
-        p:1
+        borderBottom:'1px solid #CCC',
+        p:1,
+        transition:'1s ease-out'
       }}
     >
       <Grid size={{ lg: 6 }}>
-        <IconButton>
+        <IconButton onClick={handleToggleSidebar}>
             <DensityMedium/>
         </IconButton>
       </Grid>

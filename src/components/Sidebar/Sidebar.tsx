@@ -7,7 +7,11 @@ import { Box, Grid, useTheme, Typography, Divider, Badge } from "@mui/material";
 
 const bgColorLight = "#4c81a6ff"
 const bgColorDark = "#5b98c3ff"
-export const Sidebar = () => {
+
+interface sidebarProps {
+  isClicked:boolean
+}
+export const Sidebar = ({isClicked}:sidebarProps) => {
   const theme = useTheme();
   const { isDarkMode } = useThemeContext();
 
@@ -15,10 +19,12 @@ export const Sidebar = () => {
     <Box
       sx={{
         width: "100%",
+        display: isClicked? "none" : "block",
         minHeight: "100vh",
         backgroundColor: isDarkMode ? backgroundConstantColorDark: backgroundConstantColorLight,
-        py:2,
-        border:'1px solid #CCC',
+        pt:6,
+        pb:1,
+        borderRight:'1px solid #CCC',
       }}
     >
       <Grid container display={"flex"} flexDirection={"column"} width={'90%'} margin={'auto'}>

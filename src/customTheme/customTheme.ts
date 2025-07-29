@@ -10,7 +10,7 @@ const raleway = Raleway({
   weight: ['400', '500', '600', '700'],
 });
 
-export const backgroundConstantColorLight = '#fcf6f0ff';
+export const backgroundConstantColorLight = '#f3f6feff';
 export const backgroundConstantColorDark = '#1C1C1E';
 
 
