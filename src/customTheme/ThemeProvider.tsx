@@ -1,8 +1,7 @@
+'use client'
 import { CssBaseline, Theme, ThemeProvider } from "@mui/material";
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { darkTheme, lightTheme } from "./customTheme";
-
-
 
 interface ThemeContextType {
   toggleTheme: () => void;
