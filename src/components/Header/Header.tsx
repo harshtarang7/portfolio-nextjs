@@ -15,6 +15,7 @@ export const Header = ({handleToggleSidebar}:HeaderProps) => {
   return (
     <Grid
       container
+      
       sx={{
         width: "100%",
         backgroundColor:isDarkMode ? backgroundConstantColorDark: backgroundConstantColorLight,
