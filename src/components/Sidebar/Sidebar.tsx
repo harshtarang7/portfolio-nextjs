@@ -80,7 +80,7 @@ export const Sidebar = ({ isClicked }: sidebarProps) => {
       sx={{
         width: "100%",
         display: isClicked ? "none" : "block",
-        minHeight: "100vh",
+        minHeight: "100%",
         backgroundColor: isDarkMode
           ? backgroundConstantColorDark
           : backgroundConstantColorLight,
