@@ -22,7 +22,7 @@ export const HeaderAndSidebar = ({
 
   return (
     <Grid container>
-      {
+      {/* {
         showSidebar && (
       <Grid
         size={{ lg: 2, md: 3, sm: 3 }}
@@ -34,19 +34,17 @@ export const HeaderAndSidebar = ({
         <Sidebar isClicked={isClicked} />
       </Grid>
         )
-      }
+      } */}
       <Grid
         size={{ 
-          lg: isClicked ? 12 : 10 ,
-          md: isClicked ? 10 : 9 ,
-          sm: isClicked ? 10 : 9 ,
+          lg: 12
         
         }}
         // sx={{
         //   transition: "1s ease-out",
         // }}
       >
-        <Header handleToggleSidebar={handleToggle} />
+        <Header />
 
         <Box component="main" sx={{ p: 2 }}>
           {children}
