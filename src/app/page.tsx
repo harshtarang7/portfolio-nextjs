@@ -1,5 +1,13 @@
 "use client";
-import { Box, Button, Chip, Grid, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  Divider,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 import AboutMe from "./about-me/page";
 import { Typewriter } from "react-simple-typewriter";
 import Image from "next/image";
@@ -7,7 +15,8 @@ import { useThemeContext } from "@/customTheme/ThemeProvider";
 import Link from "next/link";
 import { ArrowCircleRight } from "@mui/icons-material";
 
-const cardBg ="#151515ff"
+const cardBg = "#151515ff";
+const cardBgLight = "#f2f6fcff";
 export default function Home() {
   const { isDarkMode } = useThemeContext();
   return (
@@ -30,6 +39,9 @@ export default function Home() {
               padding={3}
               borderRadius={3}
               gap={3}
+              sx={{
+                backgroundColor: isDarkMode ? cardBg : cardBgLight,
+              }}
             >
               <Box
                 sx={{
@@ -69,7 +81,7 @@ export default function Home() {
                   variant="body2"
                   fontSize={17}
                   sx={{
-                    color: isDarkMode? "white":"#323232ff",
+                    color: isDarkMode ? "white" : "#323232ff",
                   }}
                 >
                   I create Web Apps , <br />I edit video sometimes , <br />I
@@ -92,7 +104,7 @@ export default function Home() {
               borderRadius={4}
               elevation={3}
               sx={{
-                backgroundColor:isDarkMode?cardBg:"#e4e2e2ff"
+                backgroundColor: isDarkMode ? cardBg : cardBgLight,
               }}
             >
               <Box
@@ -141,8 +153,8 @@ export default function Home() {
               gap={2}
               borderRadius={4}
               elevation={3}
-               sx={{
-                backgroundColor:isDarkMode?cardBg:"#e4e2e2ff"
+              sx={{
+                backgroundColor: isDarkMode ? cardBg : cardBgLight,
               }}
             >
               <Box
@@ -184,83 +196,174 @@ export default function Home() {
         </Grid>
 
         {/* middle  */}
-           <Grid container size={{ lg: 12 }}>
-          <Grid size={{ lg: 7, md: 6, sm: 12 }}>
-            {/* service section  */}
+        <Grid container size={{ lg: 12 }}>
+          <Grid size={{ lg: 3.5 }}>
             <Box
               display={"flex"}
               component={Paper}
               elevation={2}
               py={4}
+              px={2}
+              borderRadius={3}
+              gap={3}
+              justifyItems={"center"}
+              alignItems={"flex-start"}
+              // flexDirection={'column'}
+              sx={{
+                backgroundColor: isDarkMode ? cardBg : cardBgLight,
+                boxSizing: "border-box",
+              }}
+            >
+              <Box
+                display={"flex"}
+                width={"50%"}
+                flexDirection={"column"}
+                textAlign={"center"}
+              >
+                <Box
+                width={'100%'}
+                  margin={"auto"}
+                  textAlign={"center"}
+                  p={2}
+                  borderRadius={2}
+                  sx={{
+                    background:isDarkMode?
+                      "linear-gradient(217deg, #494949ff, #000000ff 70.71%)"
+                      :"linear-gradient(217deg, #ffe7c6ff, #fbe8e3ff 70.71%)"
+                  }}
+                >
+                  <Typography fontSize={"3rem"} fontWeight={700} 
+                  sx={{
+                    color:isDarkMode?"#ffffffff":"#000000ff"
+                  }}>
+                    1
+                  </Typography>
+                </Box>
+                <Typography variant="body2" fontSize={16} fontWeight={500} color="textSecondary">
+                  Years of Experience
+                </Typography>
+              </Box>
+
+              <Box
+                display={"flex"}
+                flexDirection={"column"}
+                textAlign={"center"}
+                width={"50%"}
+              >
+                <Box
+                width={'100%'}
+                  margin={"auto"}
+                  textAlign={"center"}
+                  p={2}
+                  borderRadius={2}
+                 sx={{
+                    background:isDarkMode?
+                      "linear-gradient(217deg, #494949ff, #000000ff 70.71%)"
+                      :"linear-gradient(217deg, #ffe7c6ff, #fbe8e3ff 70.71%)"
+                  }}
+                >
+                  <Typography fontSize={"3rem"} fontWeight={700} 
+                   sx={{
+                    color:isDarkMode?"#ffffffff":"#000000ff"
+                  }}>3</Typography>
+                </Box>
+                <Typography variant="body2" fontSize={16} fontWeight={500} color="textSecondary">
+                  Projects
+                </Typography>
+              </Box>
+            </Box>
+          </Grid>
+          <Grid size={{ lg: 5, md: 6, sm: 12 }}>
+            {/* service section  */}
+            <Box
+              display={"flex"}
+              component={Paper}
+              elevation={2}
+              py={5}
               px={5}
               borderRadius={3}
               gap={3}
-              justifyContent={'center'}
-               sx={{
-                backgroundColor:isDarkMode?cardBg:"#e4e2e2ff"
+              justifyContent={"left"}
+              sx={{
+                backgroundColor: isDarkMode ? cardBg : cardBgLight,
               }}
             >
-          
-              <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} textAlign={'center'}
-              sx={{
-                p:1,
-                borderRadius:3,
-                background:isDarkMode?"linear-gradient(200deg, #5c5c5cff, #010101ff 70.71%)":""
-              }} >
+              <Box
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                textAlign={"center"}
+                sx={{
+                  p: 1,
+                  borderRadius: 3,
+                }}
+              >
                 <Image
-                src={"/assets/java-script.png"}
-                alt="javscript"
-                width={80}
-                height={80}
+                  src={"/assets/java-script.png"}
+                  alt="javscript"
+                  width={80}
+                  height={80}
                 />
                 <Typography>Javascript</Typography>
               </Box>
-              <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} textAlign={'center'}
-              sx={{
-                p:1,
-                borderRadius:3,
-                background:isDarkMode?"linear-gradient(200deg, #5c5c5cff, #010101ff 70.71%)":""
-              }} >
+              <Box
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                textAlign={"center"}
+                sx={{
+                  p: 1,
+                  borderRadius: 3,
+                }}
+              >
                 <Image
-                src={"/assets/java-script.png"}
-                alt="javscript"
-                width={80}
-                height={80}
+                  src={"/assets/nodejs.png"}
+                  alt="javscript"
+                  width={80}
+                  height={80}
                 />
-                <Typography>Javascript</Typography>
+                <Typography>Node.js</Typography>
               </Box>
-              <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} textAlign={'center'}
-              sx={{
-                p:1,
-                borderRadius:3,
-                background:isDarkMode?"linear-gradient(200deg, #5c5c5cff, #010101ff 70.71%)":""
-              }} >
+              <Box
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                textAlign={"center"}
+                sx={{
+                  p: 1,
+                  borderRadius: 3,
+                }}
+              >
                 <Image
-                src={"/assets/java-script.png"}
-                alt="javscript"
-                width={80}
-                height={80}
+                  src={"/assets/coding.png"}
+                  alt="javscript"
+                  width={80}
+                  height={80}
                 />
-                <Typography>Javascript</Typography>
+                <Typography>HTML & CSS</Typography>
               </Box>
-              <Box display={'flex'} flexDirection={'column'} justifyContent={'center'} textAlign={'center'}
-              sx={{
-                p:1,
-                borderRadius:3,
-                background:isDarkMode?"linear-gradient(200deg, #5c5c5cff, #010101ff 70.71%)":""
-              }} >
+              <Box
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                textAlign={"center"}
+                sx={{
+                  p: 1,
+                  borderRadius: 3,
+                }}
+              >
                 <Image
-                src={"/assets/java-script.png"}
-                alt="javscript"
-                width={80}
-                height={80}
+                  src={"/assets/react.png"}
+                  alt="javscript"
+                  width={80}
+                  height={80}
                 />
-                <Typography>Javascript</Typography>
+                <Typography>React.js</Typography>
               </Box>
             </Box>
           </Grid>
 
-          <Grid size={{ lg: 5 }} display={"flex"} gap={2}>
+          <Grid size={{ lg: 3.5 }} display={"flex"} gap={2}>
             <Box
               display={"flex"}
               flexDirection={"column"}
@@ -270,8 +373,8 @@ export default function Home() {
               gap={2}
               borderRadius={4}
               elevation={3}
-               sx={{
-                backgroundColor:isDarkMode?cardBg:"#e4e2e2ff"
+              sx={{
+                backgroundColor: isDarkMode ? cardBg : cardBgLight,
               }}
             >
               {/* first */}
