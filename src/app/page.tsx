@@ -14,19 +14,54 @@ import Image from "next/image";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
 import Link from "next/link";
 import { ArrowCircleRight } from "@mui/icons-material";
+import { Footer } from "@/components/Footer/page";
 
 const cardBg = "#151515ff";
 const cardBgLight = "#f2f6fcff";
 export default function Home() {
   const { isDarkMode } = useThemeContext();
+
+   const containerVariants = {
+    hidden: {
+      scale: 0.8,
+      opacity: 0,
+    },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      scale: 0.9,
+      opacity: 0,
+    },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <>
+    
       <Grid
         container
         maxWidth={"1370px"}
         justifyContent={"space-between"}
         alignItems={"center"}
         margin={"auto"}
+        mt={4}
         spacing={2}
       >
         {/* top part */}
@@ -403,7 +438,7 @@ export default function Home() {
                 alignItems={"center"}
               >
                 <Typography variant="body2" fontSize={19}>
-                  More about me
+                Stay with me 
                 </Typography>
                 <Link href={"/about-me"}>
                   <Button variant="contained" fullWidth>
@@ -416,6 +451,7 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
+      <Footer/>
     </>
   );
 }
