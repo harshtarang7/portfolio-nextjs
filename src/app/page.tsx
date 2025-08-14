@@ -232,7 +232,7 @@ export default function Home() {
 
         {/* middle  */}
         <Grid container size={{ lg: 12 }}>
-          <Grid size={{ lg: 3.5 }}>
+          <Grid size={{ lg: 3 }}>
             <Box
               display={"flex"}
               component={Paper}
@@ -256,14 +256,14 @@ export default function Home() {
                 textAlign={"center"}
               >
                 <Box
-                width={'100%'}
+                  width={'90%'}
                   margin={"auto"}
                   textAlign={"center"}
-                  p={2}
-                  borderRadius={2}
+                  py={2}
+                  borderRadius={4}
                   sx={{
                     background:isDarkMode?
-                      "linear-gradient(217deg, #494949ff, #000000ff 70.71%)"
+                      "linear-gradient(217deg, #181818ff, #202020fe 70.71%)"
                       :"linear-gradient(217deg, #ffe7c6ff, #fbe8e3ff 70.71%)"
                   }}
                 >
@@ -286,14 +286,14 @@ export default function Home() {
                 width={"50%"}
               >
                 <Box
-                width={'100%'}
+                width={'90%'}
                   margin={"auto"}
                   textAlign={"center"}
-                  p={2}
-                  borderRadius={2}
-                 sx={{
+                  py={2}
+                  borderRadius={4}
+                  sx={{
                     background:isDarkMode?
-                      "linear-gradient(217deg, #494949ff, #000000ff 70.71%)"
+                      "linear-gradient(217deg, #181818ff, #202020fe 70.71%)"
                       :"linear-gradient(217deg, #ffe7c6ff, #fbe8e3ff 70.71%)"
                   }}
                 >
@@ -308,13 +308,13 @@ export default function Home() {
               </Box>
             </Box>
           </Grid>
-          <Grid size={{ lg: 5, md: 6, sm: 12 }}>
+          <Grid size={{ lg: 6, md: 6, sm: 12 }}>
             {/* service section  */}
             <Box
               display={"flex"}
               component={Paper}
               elevation={2}
-              py={5}
+              py={6.5}
               px={5}
               borderRadius={3}
               gap={3}
@@ -395,10 +395,28 @@ export default function Home() {
                 />
                 <Typography>React.js</Typography>
               </Box>
+              <Box
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                textAlign={"center"}
+                sx={{
+                  p: 1,
+                  borderRadius: 3,
+                }}
+              >
+                <Image
+                  src={"/assets/database.png"}
+                  alt="javscript"
+                  width={80}
+                  height={80}
+                />
+                <Typography>SQL</Typography>
+              </Box>
             </Box>
           </Grid>
 
-          <Grid size={{ lg: 3.5 }} display={"flex"} gap={2}>
+          <Grid size={{ lg: 3 }} display={"flex"} gap={2}>
             <Box
               display={"flex"}
               flexDirection={"column"}
