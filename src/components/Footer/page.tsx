@@ -18,10 +18,10 @@ export const Footer = () => {
           Tarang Harsh
         </Typography>
         <Box display={"flex"} gap={5} justifyContent={"center"} my={2}>
-          <Link href={"#"} style={customStyle}>
+          <Link href={"/"} style={customStyle}>
             HOME
           </Link>
-          <Link href={"#"} style={customStyle}>ABOUT</Link>
+          <Link href={"/about-me"} style={customStyle}>ABOUT</Link>
           <Link href={"#"} style={customStyle}>PROJECTS</Link>
           <Link href={"#"} style={customStyle}>RESUME</Link>
         </Box>

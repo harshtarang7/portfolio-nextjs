@@ -8,7 +8,6 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
-import AboutMe from "./about-me/page";
 import { Typewriter } from "react-simple-typewriter";
 import Image from "next/image";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
