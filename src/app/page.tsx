@@ -15,41 +15,10 @@ import Link from "next/link";
 import { ArrowCircleRight } from "@mui/icons-material";
 import { Footer } from "@/components/Footer/page";
 
-const cardBg = "#151515ff";
-const cardBgLight = "#f2f6fcff";
+export const cardBg = "#151515ff";
+export const cardBgLight = "#f2f6fcff";
 export default function Home() {
   const { isDarkMode } = useThemeContext();
-
-   const containerVariants = {
-    hidden: {
-      scale: 0.8,
-      opacity: 0,
-    },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: {
-      scale: 0.9,
-      opacity: 0,
-    },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut",
-      },
-    },
-  };
 
   return (
     <>
