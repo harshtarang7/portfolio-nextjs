@@ -252,7 +252,6 @@ export const AboutMeTabs = () => {
           <ul
             style={{
               listStyle: "none",
-              listStyleType: "revert",
               textDecoration: "none",
               display: "flex",
               flexDirection: "column",

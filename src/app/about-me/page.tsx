@@ -1,18 +1,15 @@
 "use client";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
-import { Box, Chip, Divider, Grid, Paper, Typography, Tooltip, Tabs } from "@mui/material";
+import { Box, Grid, Paper, Typography, } from "@mui/material";
 import Image from "next/image";
-import Link from "next/link";
-import { Typewriter } from "react-simple-typewriter";
 import { cardBg, cardBgLight } from "../page";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
-import { Facebook, Instagram, LinkedIn, Pets } from "@mui/icons-material";
 import { Footer } from "@/components/Footer/page";
 import { AboutMeTabs } from "./Tabs";
-// import { AboutMeTabs } from "./tabs";
 
 const AboutMe: React.FC = () => {
   const { isDarkMode } = useThemeContext();
+ 
   return (
     <>
       <Grid
@@ -147,4 +144,5 @@ const AboutMe: React.FC = () => {
     </>
   );
 };
+
 export default AboutMe;
