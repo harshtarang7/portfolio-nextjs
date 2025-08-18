@@ -2,6 +2,7 @@
 import { useThemeContext } from "@/customTheme/ThemeProvider";
 import {
   Box,
+  Divider,
   Grid,
   Paper,
   Tab,
@@ -12,11 +13,15 @@ import {
 import { useState } from "react";
 import { cardBg, cardBgLight } from "../page";
 import {
+  Code,
+  CodeOffOutlined,
   EmojiFoodBeverage,
   Facebook,
   Instagram,
   LinkedIn,
   Pets,
+  SportsFootball,
+  SportsSoccer,
   Star,
   StarBorder,
 } from "@mui/icons-material";
@@ -244,7 +249,7 @@ export const AboutMeTabs = () => {
           elevation={2}
           padding={3}
           borderRadius={3}
-          gap={3}
+          gap={2}
           sx={{
             backgroundColor: isDarkMode ? cardBg : cardBgLight,
           }}
@@ -255,7 +260,7 @@ export const AboutMeTabs = () => {
               textDecoration: "none",
               display: "flex",
               flexDirection: "column",
-              gap: 5,
+              gap: 2,
             }}
           >
             <li style={{ display: "flex" }}>
@@ -298,9 +303,32 @@ export const AboutMeTabs = () => {
                 MongoDB &nbsp; | &nbsp; MYSQL &nbsp; | &nbsp; PostgreSQL{" "}
               </Typography>
             </li>
+          </ul>
+
+          <Divider/>
+          <Typography fontSize={21} fontWeight={600}>OTHER SKILLS</Typography>
+          <ul
+           style={{
+              listStyle: "none",
+              textDecoration: "none",
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+            }}>
+
             <li>
-              <Typography fontSize={17} mt={2} color="textDisabled">
+              <Typography fontSize={17}  >
                 <EmojiFoodBeverage color="warning" /> I need tea to code
+              </Typography>
+            </li>
+            <li>
+              <Typography fontSize={17} mt={2} >
+                <Code color="warning" /> More than just a beginner at clean code
+              </Typography>
+            </li>
+            <li>
+              <Typography fontSize={17} mt={2} >
+                <SportsSoccer color="warning" />  Got a bit of footy skills 
               </Typography>
             </li>
           </ul>
