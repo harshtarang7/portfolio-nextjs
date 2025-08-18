@@ -74,7 +74,7 @@ export const Header = () => {
           </li>
           <li>
             <Link href={"/"}>
-              <Typography>Resume</Typography>
+              <Typography>Contact</Typography>
             </Link>
           </li>
           <li>
@@ -90,7 +90,7 @@ export const Header = () => {
           </li>
           <li>
             <Link href={"#"}>
-              <Button variant="contained">Contact Me?</Button>
+              <Button variant="contained">Resume</Button>
             </Link>
           </li>
         </ul>

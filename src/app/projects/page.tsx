@@ -23,6 +23,7 @@ const Projects = () => {
           width={"100%"}
           height={"124vh !important"}
           mx={1}
+          mt={4}
         >
           <motion.div
             animate={{
@@ -114,7 +115,7 @@ const Projects = () => {
             </Box>
             <Box>
               <Typography fontSize={"5.5rem"} fontWeight={600}>
-                Self-Summary
+                ALL PROJECTS
               </Typography>
             </Box>
             <Box>
