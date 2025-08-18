@@ -22,28 +22,30 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
-interface HeaderProps {
-  handleToggleSidebar: () => void;
-}
 export const Header = () => {
   const theme = useTheme();
   const { toggleTheme, isDarkMode } = useThemeContext();
+  const pathname = usePathname();
 
+  const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Projects" },
+    { href: "/about-me", label: "About Me" },
+    { href: "/contact", label: "Contact" },
+    { href: "/resume", label: "Resume" },
+  ];
   return (
     <Grid
       container
       sx={{
         width: "50%",
-        // color:isDarkMode ? backgroundConstantColorDark: backgroundConstantColorLight,
         justifyContent: "center",
         alignItems: "center",
-        // borderBottom:'1px solid #CCC',
-        // border: 1,
         py: 2,
         margin: "auto",
-        // transition:'1s ease-out'
       }}
     >
       <Grid size={{ lg: 12 }}>
@@ -53,30 +55,35 @@ export const Header = () => {
             textDecoration: "none",
             listStyle: "none",
             gap: "3rem",
-            justifyContent:'center',
-            alignItems:'center'
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <li>
-            <Link href={"/"}>
-              <Typography>Home</Typography>
-            </Link>
-          </li>
-          <li>
-            <Link href={"/projects"}>
-              <Typography>Projects</Typography>
-            </Link>
-          </li>
-          <li>
-            <Link href={"/about-me"}>
-              <Typography>About Me</Typography>
-            </Link>
-          </li>
-          <li>
-            <Link href={"/"}>
-              <Typography>Contact</Typography>
-            </Link>
-          </li>
+          {navItems.map((link, index) => {
+            const active = pathname === link.href;
+            return (
+              <li key={index}>
+                <Link href={link.href}>
+                  <Typography
+                    sx={{
+                      position: "relative",
+                      padding: "0.5rem 1rem",
+                      color: active
+                        ? theme.palette.primary.main
+                        : theme.palette.primary.light,
+                      transition: "border-color 0.3s ease",
+                      "&:hover": {
+                        borderColor: theme.palette.primary.light,
+                      },
+                    }}
+                  >
+                    {link.label}
+                  </Typography>
+                </Link>
+              </li>
+            );
+          })}
+
           <li>
             <Tooltip title="Theme">
               <IconButton onClick={toggleTheme}>
@@ -88,14 +95,8 @@ export const Header = () => {
               </IconButton>
             </Tooltip>
           </li>
-          <li>
-            <Link href={"#"}>
-              <Button variant="contained">Resume</Button>
-            </Link>
-          </li>
         </ul>
       </Grid>
-      
     </Grid>
   );
 };
