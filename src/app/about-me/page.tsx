@@ -119,7 +119,7 @@ const AboutMe: React.FC = () => {
                     color: isDarkMode ? "lightblue" : "black",
                   }}
                 >
-                  ( Yes that's me everyday picking up my dog's issues )
+                  ( Yes that's me everyday solving up my dog's issues )
                 </span>
               </Typography>
             </Box>

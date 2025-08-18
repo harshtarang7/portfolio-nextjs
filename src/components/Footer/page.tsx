@@ -22,7 +22,7 @@ export const Footer = () => {
             HOME
           </Link>
           <Link href={"/about-me"} style={customStyle}>ABOUT</Link>
-          <Link href={"#"} style={customStyle}>PROJECTS</Link>
+          <Link href={"/projects"} style={customStyle}>PROJECTS</Link>
           <Link href={"#"} style={customStyle}>RESUME</Link>
         </Box>
       </Grid>
