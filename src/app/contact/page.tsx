@@ -10,10 +10,25 @@ import {
 } from "@mui/material";
 import { ContactData } from "./contactData";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
-import { cardBg, cardBgLight } from "../page";
-
 const Contact = () => {
   const { isDarkMode } = useThemeContext();
+
+
+const customTextfieldStyle = {
+  background: isDarkMode
+    ? "linear-gradient(17deg, #2e2e2ed4, #161616fe 70.71%)"
+    : "#ffffffff",
+    borderRadius:3,
+  '& .MuiOutlinedInput-root': {
+    borderRadius: 3,
+    '&:hover .MuiOutlinedInput-notchedOutline': {
+      borderRadius: 3,
+    },
+    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+      borderRadius: 3,
+    },
+  }
+};
   return (
     <>
       <Grid container maxWidth={"1320px"} margin={"auto"} mt={"4rem"}>
@@ -42,7 +57,7 @@ const Contact = () => {
                   sx={{
                     background: isDarkMode
                       ? "linear-gradient(120deg, #272727ff, #1a1919fe 70.71%)"
-                      : "linear-gradient(217deg, #ffe7c6ff, #fbe8e3ff 70.71%)",
+                      : "#fee2bbff",
                   }}
                   py={3}
                 >
@@ -87,30 +102,24 @@ const Contact = () => {
           sx={{
             background: isDarkMode
               ? "linear-gradient(120deg, #202020ff, #161616fe 70.71%)"
-              : "linear-gradient(217deg, #bed2fbff, #ecf0ffff 70.71%)",
+              : "#fee2bbff",
           }}
+          boxShadow={"0px 0px 5px #8a8a8ad4"}
         >
           <Typography fontSize={"3rem"} fontWeight={600}>
             Let's work together
           </Typography>
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            gap={3}
-           
-          >
-            <FormControl>
-              <TextField type="text" label={"Name *"} />
-            </FormControl>
-            <FormControl>
-              <TextField type="email" label={"Email *"} />
-            </FormControl>
-            <FormControl>
-              <TextField type="text" label={"Subject *"} />
-            </FormControl>
-            <FormControl>
-              <TextField multiline type="textarea"  minRows={3} label={"Your Message *"} />
-            </FormControl>
+          <Box display={"flex"} flexDirection={"column"} gap={3}>
+              <TextField variant="outlined" type="text" label={"Name *"} sx={customTextfieldStyle} />
+              <TextField type="email" label={"Email *"}  sx={customTextfieldStyle}/>
+              <TextField type="text" label={"Subject *"}  sx={customTextfieldStyle}/>
+              <TextField
+                multiline
+                type="textarea"
+                minRows={3}
+                label={"Your Message *"}
+                sx={customTextfieldStyle}
+              />
           </Box>
         </Grid>
       </Grid>

@@ -23,7 +23,7 @@ export const Footer = () => {
           </Link>
           <Link href={"/about-me"} style={customStyle}>ABOUT</Link>
           <Link href={"/projects"} style={customStyle}>PROJECTS</Link>
-          <Link href={"#"} style={customStyle}>CONTACT</Link>
+          <Link href={"/contact"} style={customStyle}>CONTACT</Link>
         </Box>
       </Grid>
     </Grid>

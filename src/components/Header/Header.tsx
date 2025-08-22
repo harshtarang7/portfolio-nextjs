@@ -35,7 +35,7 @@ export const Header = () => {
     { href: "/projects", label: "Projects" },
     { href: "/about-me", label: "About Me" },
     { href: "/contact", label: "Contact" },
-    { href: "/resume", label: "Resume" },
+    // { href: "/resume", label: "Resume" },
   ];
   return (
     <Grid
@@ -69,12 +69,16 @@ export const Header = () => {
                       position: "relative",
                       padding: "0.5rem 1rem",
                       color: active
-                        ? theme.palette.primary.main
-                        : theme.palette.primary.light,
+                        ? 'white'
+                        :isDarkMode ? theme.palette.primary.dark:'black',
+
+                      borderRadius:active?4:0,
                       transition: "border-color 0.3s ease",
+                      backgroundColor:active? theme.palette.primary.dark:'',
                       "&:hover": {
                         borderColor: theme.palette.primary.light,
                       },
+                      
                     }}
                   >
                     {link.label}
