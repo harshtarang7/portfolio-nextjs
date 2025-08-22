@@ -1,7 +1,9 @@
 "use client";
 
 import {
+  Alert,
   Box,
+  Button,
   FormControl,
   Grid,
   Paper,
@@ -10,25 +12,144 @@ import {
 } from "@mui/material";
 import { ContactData } from "./contactData";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
+import { useState } from "react";
 const Contact = () => {
   const { isDarkMode } = useThemeContext();
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-const customTextfieldStyle = {
-  background: isDarkMode
-    ? "linear-gradient(17deg, #2e2e2ed4, #161616fe 70.71%)"
-    : "#ffffffff",
-    borderRadius:3,
-  '& .MuiOutlinedInput-root': {
+  const handleInputChange =
+    (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      setFormData((prev) => ({
+        ...prev,
+        [field]: event.target.value,
+      }));
+
+      // Clear status when user starts typing
+      if (status.type) {
+        setStatus({ type: null, message: "" });
+      }
+    };
+
+  const validateForm = () => {
+    if (!formData.name.trim()) {
+      setStatus({ type: "error", message: "Name is required" });
+      return false;
+    }
+    if (!formData.email.trim()) {
+      setStatus({ type: "error", message: "Email is required" });
+      return false;
+    }
+    if (!formData.subject.trim()) {
+      setStatus({ type: "error", message: "Subject is required" });
+      return false;
+    }
+    if (!formData.message.trim()) {
+      setStatus({ type: "error", message: "Message is required" });
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus({
+        type: "error",
+        message: "Please enter a valid email address",
+      });
+      return false;
+    }
+
+    return true;
+  };
+
+  const sendTestEmail = async () => {
+    if (!validateForm()) return;
+    setIsLoading(true);
+    setStatus({ type: null, message: "" });
+    try {
+      console.log("Sending email with data:", formData);
+
+      const res = await fetch("/api/send-email/send-mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          to: "your-email@example.com", // Replace with your actual email
+          subject: `Contact Form: ${formData.subject}`,
+          text: `
+            Name: ${formData.name}
+            Email: ${formData.email}
+            Subject: ${formData.subject}
+            Message: ${formData.message}
+                      `,
+          html: `
+            <h2>New Message From${formData.name}</h2>
+            <p><strong>Subject:</strong> ${formData.subject}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Message:</strong></p>
+            <p>${formData.message.replace(/\n/g, "<br>")}</p>
+          `,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+
+      const data = await res.json();
+
+      if(data){
+        setStatus({
+          type: "success",
+          message:
+            "Your message has been sent successfully! I'll get back to you soon.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      }else{
+          setStatus({
+          type: "error",
+          message:
+            "Your message has not been sent, check the details",
+        });
+      }
+
+      // Reset form
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const customTextfieldStyle = {
+    background: isDarkMode
+      ? "linear-gradient(17deg, #2e2e2ed4, #161616fe 70.71%)"
+      : "#ffffffff",
     borderRadius: 3,
-    '&:hover .MuiOutlinedInput-notchedOutline': {
+    "& .MuiOutlinedInput-root": {
       borderRadius: 3,
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderRadius: 3,
+      },
+      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+        borderRadius: 3,
+      },
     },
-    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-      borderRadius: 3,
-    },
-  }
-};
+  };
+
   return (
     <>
       <Grid container maxWidth={"1320px"} margin={"auto"} mt={"4rem"}>
@@ -109,18 +230,60 @@ const customTextfieldStyle = {
           <Typography fontSize={"3rem"} fontWeight={600}>
             Let's work together
           </Typography>
+          {status.type && (
+            <Alert
+              severity={status.type}
+              onClose={() => setStatus({ type: null, message: "" })}
+              sx={{ mb: 2 }}
+            >
+              {status.message}
+            </Alert>
+          )}
           <Box display={"flex"} flexDirection={"column"} gap={3}>
-              <TextField variant="outlined" type="text" label={"Name *"} sx={customTextfieldStyle} />
-              <TextField type="email" label={"Email *"}  sx={customTextfieldStyle}/>
-              <TextField type="text" label={"Subject *"}  sx={customTextfieldStyle}/>
-              <TextField
-                multiline
-                type="textarea"
-                minRows={3}
-                label={"Your Message *"}
-                sx={customTextfieldStyle}
-              />
+            <TextField
+              variant="outlined"
+              type="text"
+              label={"Name *"}
+              value={formData.name}
+              onChange={handleInputChange("name")}
+              sx={customTextfieldStyle}
+            />
+            <TextField
+              type="email"
+              label={"Email *"}
+              value={formData.email}
+              onChange={handleInputChange("email")}
+              sx={customTextfieldStyle}
+            />
+            <TextField
+              type="text"
+              label={"Subject *"}
+              value={formData.subject}
+              onChange={handleInputChange("subject")}
+              sx={customTextfieldStyle}
+            />
+            <TextField
+              multiline
+              type="textarea"
+              minRows={3}
+              label={"Your Message *"}
+              value={formData.message}
+              onChange={handleInputChange("message")}
+              sx={customTextfieldStyle}
+            />
           </Box>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: isDarkMode ? "#c6c6c6ff" : "#ff9b4aff",
+              color: "black",
+              fontSize: 18,
+              fontWeight: 700,
+            }}
+            onClick={sendTestEmail}
+          >
+            Send
+          </Button>
         </Grid>
       </Grid>
     </>
