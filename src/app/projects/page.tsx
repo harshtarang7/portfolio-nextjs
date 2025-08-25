@@ -1,12 +1,12 @@
 "use client";
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import Image from "next/image";
-import { cardBg, cardBgLight } from "../page";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
 import { projectsData, projectsDataRight } from "./staticProjects";
 import { motion } from "framer-motion";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import Link from "next/link";
+import { cardBg, cardBgLight } from "@/styles/customStyles";
 
 const duplicatedProjectsData = [...projectsData, ...projectsData];
 

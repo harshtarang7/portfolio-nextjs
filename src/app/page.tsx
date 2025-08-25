@@ -2,8 +2,6 @@
 import {
   Box,
   Button,
-  Chip,
-  Divider,
   Grid,
   Paper,
   Typography,
@@ -12,11 +10,9 @@ import Image from "next/image";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
 import Link from "next/link";
 import { ArrowCircleRight } from "@mui/icons-material";
-import { Footer } from "@/components/Footer/page";
 import { motion } from "framer-motion";
+import { cardBg, cardBgLight } from "@/styles/customStyles";
 
-export const cardBg = "#151515ff";
-export const cardBgLight = "#f2f6fcff";
 export default function Home() {
   const { isDarkMode } = useThemeContext();
 

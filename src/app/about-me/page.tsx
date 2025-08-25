@@ -2,10 +2,10 @@
 import { useThemeContext } from "@/customTheme/ThemeProvider";
 import { Box, Grid, Paper, Typography, } from "@mui/material";
 import Image from "next/image";
-import { cardBg, cardBgLight } from "../page";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { Footer } from "@/components/Footer/page";
 import { AboutMeTabs } from "./Tabs";
+import { cardBg, cardBgLight } from "@/styles/customStyles";
 
 const AboutMe: React.FC = () => {
   const { isDarkMode } = useThemeContext();

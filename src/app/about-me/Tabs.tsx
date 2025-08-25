@@ -11,20 +11,18 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { cardBg, cardBgLight } from "../page";
+
 import {
   Code,
-  CodeOffOutlined,
   EmojiFoodBeverage,
   Facebook,
   Instagram,
   LinkedIn,
   Pets,
-  SportsFootball,
   SportsSoccer,
   Star,
-  StarBorder,
 } from "@mui/icons-material";
+import { cardBg, cardBgLight } from "@/styles/customStyles";
 
 export const AboutMeTabs = () => {
   const [value, setValue] = useState<number>(0);
