@@ -1,6 +1,6 @@
 "use client";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
-import { Box, Grid, Paper, Typography, } from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import Image from "next/image";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { Footer } from "@/components/Footer/page";
@@ -9,7 +9,7 @@ import { cardBg, cardBgLight } from "@/styles/customStyles";
 
 const AboutMe: React.FC = () => {
   const { isDarkMode } = useThemeContext();
- 
+
   return (
     <>
       <Grid
@@ -119,7 +119,7 @@ const AboutMe: React.FC = () => {
                     color: isDarkMode ? "lightblue" : "black",
                   }}
                 >
-                  ( Yes that's me everyday solving up my dog's issues )
+                  ( Yes that&apos;s me everyday solving up my dog&apos;s issues )
                 </span>
               </Typography>
             </Box>
@@ -136,11 +136,11 @@ const AboutMe: React.FC = () => {
 
         {/* experience and education */}
 
-        <Grid container width={'100%'}>
-        <AboutMeTabs/>  
+        <Grid container width={"100%"}>
+          <AboutMeTabs />
         </Grid>
       </Grid>
-      <Footer/>
+      <Footer />
     </>
   );
 };

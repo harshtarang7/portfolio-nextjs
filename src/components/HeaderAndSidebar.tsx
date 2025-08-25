@@ -1,5 +1,5 @@
 "use client";
-import { Box, Divider, Grid, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Divider, Grid } from "@mui/material";
 import { Header } from "./Header/Header";
 import { Footer } from "./Footer/page";
 

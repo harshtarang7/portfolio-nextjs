@@ -1,26 +1,8 @@
 "use client";
-import {
-  backgroundConstantColorDark,
-  backgroundConstantColorLight,
-} from "@/customTheme/customTheme";
+
 import { useThemeContext } from "@/customTheme/ThemeProvider";
-import {
-  Brightness5,
-  DensityMedium,
-  NightsStay,
-  Sunny,
-  ToggleOn,
-} from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  Tooltip,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import Image from "next/image";
+import { NightsStay, Sunny } from "@mui/icons-material";
+import { Grid, IconButton, Tooltip, Typography, useTheme } from "@mui/material";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -69,16 +51,17 @@ export const Header = () => {
                       position: "relative",
                       padding: "0.5rem 1rem",
                       color: active
-                        ? 'white'
-                        :isDarkMode ? theme.palette.primary.dark:'black',
+                        ? "white"
+                        : isDarkMode
+                        ? theme.palette.primary.dark
+                        : "black",
 
-                      borderRadius:active?4:0,
+                      borderRadius: active ? 4 : 0,
                       transition: "border-color 0.3s ease",
-                      backgroundColor:active? theme.palette.primary.dark:'',
+                      backgroundColor: active ? theme.palette.primary.dark : "",
                       "&:hover": {
                         borderColor: theme.palette.primary.light,
                       },
-                      
                     }}
                   >
                     {link.label}

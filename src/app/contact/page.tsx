@@ -4,6 +4,7 @@ import {
   Alert,
   Box,
   Button,
+  CircularProgress,
   Grid,
   Paper,
   TextField,
@@ -107,7 +108,7 @@ const Contact = () => {
 
       const data = await res.json();
 
-      if(data){
+      if (data) {
         setStatus({
           type: "success",
           message:
@@ -119,11 +120,10 @@ const Contact = () => {
           subject: "",
           message: "",
         });
-      }else{
-          setStatus({
+      } else {
+        setStatus({
           type: "error",
-          message:
-            "Your message has not been sent, check the details",
+          message: "Your message has not been sent, check the details",
         });
       }
 
@@ -227,7 +227,7 @@ const Contact = () => {
           boxShadow={"0px 0px 5px #8a8a8ad4"}
         >
           <Typography fontSize={"3rem"} fontWeight={600}>
-            Let's work together
+            Let&apos;s work together
           </Typography>
           {status.type && (
             <Alert
@@ -281,7 +281,14 @@ const Contact = () => {
             }}
             onClick={sendTestEmail}
           >
-            Send
+            {isLoading ? (
+              <Box>
+                sending....
+                <CircularProgress />
+              </Box>
+            ) : (
+            "Send"
+            )}
           </Button>
         </Grid>
       </Grid>

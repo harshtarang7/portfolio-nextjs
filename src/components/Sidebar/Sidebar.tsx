@@ -7,11 +7,9 @@ import {
 import { useThemeContext } from "@/customTheme/ThemeProvider";
 import {
   BadgeOutlined,
-  ContactMail,
   FacebookRounded,
   Instagram,
   LinkedIn,
-  People,
   Person,
   PhoneOutlined,
   ProductionQuantityLimitsOutlined,
@@ -21,15 +19,13 @@ import {
 import {
   Box,
   Grid,
-  useTheme,
   Typography,
   Divider,
-  Badge,
   Button,
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 const bgColorLight = "#4c81a6ff";
 const bgColorDark = "#5b98c3ff";
@@ -38,7 +34,6 @@ interface sidebarProps {
   isClicked: boolean;
 }
 export const Sidebar = ({ isClicked }: sidebarProps) => {
-  const theme = useTheme();
   const { isDarkMode } = useThemeContext();
 
   const aboutRef = useRef<HTMLButtonElement>(null);
@@ -47,7 +42,7 @@ export const Sidebar = ({ isClicked }: sidebarProps) => {
   const productsRef = useRef<HTMLButtonElement>(null);
   const contactRef = useRef<HTMLButtonElement>(null);
 
-  const handleActive = (ref: React.RefObject<HTMLButtonElement | null>) => {
+const handleActive = useCallback((ref: React.RefObject<HTMLButtonElement | null>) => {
     const allRefs = [
       aboutRef,
       portfolioRef,
@@ -69,11 +64,11 @@ export const Sidebar = ({ isClicked }: sidebarProps) => {
       ref.current.style.backgroundColor = isDarkMode ? "#fff" : "#000";
       ref.current.style.color = isDarkMode ? "#000" : "#fff";
     }
-  };
+  }, [isDarkMode]);
 
   useEffect(() => {
     handleActive(aboutRef);
-  }, []);
+  }, [handleActive]);
 
   return (
     <Grid
