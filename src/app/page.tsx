@@ -219,7 +219,7 @@ export default function Home() {
                     <Typography variant="body2" fontSize={19}>
                       More about my work
                     </Typography>
-                    <Link href={"/about-me"}>
+                    <Link href={"/projects"}>
                       <Button variant="contained" fullWidth>
                         Here &nbsp;
                         <ArrowCircleRight />
@@ -482,9 +482,9 @@ export default function Home() {
                     alignItems={"center"}
                   >
                     <Typography variant="body2" fontSize={19}>
-                      Stay with me
+                      Get in touch with me
                     </Typography>
-                    <Link href={"/about-me"}>
+                    <Link href={"/contact"}>
                       <Button variant="contained" fullWidth>
                         Here &nbsp;
                         <ArrowCircleRight />
