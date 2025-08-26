@@ -140,7 +140,6 @@ const AboutMe: React.FC = () => {
           <AboutMeTabs />
         </Grid>
       </Grid>
-      <Footer />
     </>
   );
 };
