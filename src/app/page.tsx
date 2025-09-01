@@ -12,6 +12,7 @@ import Link from "next/link";
 import { ArrowCircleRight } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { cardBg, cardBgLight } from "@/styles/customStyles";
+import ResumeDownload from "@/components/Resume";
 
 export default function Home() {
   const { isDarkMode } = useThemeContext();
@@ -43,6 +44,14 @@ export default function Home() {
 
   return (
     <>
+    <Box textAlign={'center'}>
+      <ResumeDownload 
+            resumeUrl="/tarang-harsh.pdf" 
+            variant="button"
+            color="primary"
+            size="large"
+          />
+    </Box>
       <motion.div
         variants={containerVariants}
         initial="initial"
