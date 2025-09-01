@@ -58,6 +58,7 @@ export default function Home() {
         animate="animate"
       >
         <Grid
+        border={1}
           container
           maxWidth={"1370px"}
           justifyContent={"space-between"}
@@ -68,7 +69,7 @@ export default function Home() {
         >
           {/* top part */}
           <Grid container size={{ lg: 12 }}>
-            <Grid size={{ lg: 6, md: 6, sm: 12 }}>
+            <Grid size={{ lg: 6, md: 6, sm: 12,xs:12 }}>
               <motion.div variants={cardVariants}>
                 <Box
                   display={"flex"}
@@ -131,7 +132,7 @@ export default function Home() {
               </motion.div>
             </Grid>
 
-            <Grid size={{ lg: 6 }} display={"flex"} gap={2}>
+            <Grid size={{ lg: 6,md: 6, sm: 12,xs:12 }} display={"flex"} gap={2}>
               {/* first */}
               <motion.div variants={cardVariants} style={{ width: "100%" }}>
                 <Box
@@ -139,7 +140,7 @@ export default function Home() {
                   flexDirection={"column"}
                   component={Paper}
                   width={"100%"}
-                  height={"100%"}
+                  height={"275px"}
                   p={2}
                   gap={2}
                   borderRadius={4}
@@ -192,7 +193,7 @@ export default function Home() {
                   flexDirection={"column"}
                   component={Paper}
                   width={"100%"}
-                  height={"100%"}
+                  height={"275px"}
                   p={2}
                   gap={2}
                   borderRadius={4}
@@ -210,7 +211,7 @@ export default function Home() {
                     justifyContent={"center"}
                   >
                     <Image
-                      src={"/assets/work.png"}
+                      src={"/assets/work1.png"}
                       alt="profile"
                       width={250}
                       height={120}
@@ -242,7 +243,7 @@ export default function Home() {
 
           {/* middle  */}
           <Grid container size={{ lg: 12 }}>
-            <Grid size={{ lg: 3 }}>
+            <Grid size={{ lg: 3 ,sm:12}}>
               <motion.div variants={cardVariants}>
                 <Box
                   display={"flex"}
@@ -339,7 +340,7 @@ export default function Home() {
               </motion.div>
             </Grid>
 
-            <Grid size={{ lg: 6, md: 6, sm: 12 }}>
+            <Grid size={{ lg: 6, md: 12, sm:12 }}>
               {/* service section  */}
               <motion.div variants={cardVariants}>
                 <Box
@@ -349,8 +350,8 @@ export default function Home() {
                   py={6.5}
                   px={5}
                   borderRadius={3}
-                  gap={3}
-                  justifyContent={"left"}
+                  gap={10}
+                  justifyContent={"center"}
                   sx={{
                     backgroundColor: isDarkMode ? cardBg : cardBgLight,
                   }}
@@ -449,14 +450,14 @@ export default function Home() {
               </motion.div>
             </Grid>
 
-            <Grid size={{ lg: 3 }} display={"flex"} gap={2}>
+            <Grid size={{ lg: 3,sm:12 }} display={"flex"} gap={2}>
               <motion.div variants={cardVariants} style={{ width: "100%" }}>
                 <Box
                   display={"flex"}
                   flexDirection={"column"}
                   component={Paper}
                   width={"100%"}
-                  height={"100%"}
+                  height={"300px"}
                   p={2}
                   gap={2}
                   borderRadius={4}
@@ -475,7 +476,7 @@ export default function Home() {
                     justifyContent={"center"}
                   >
                     <Image
-                      src={"/assets/aboutt.png"}
+                      src={"/assets/productivity.png"}
                       alt="profile"
                       width={250}
                       height={120}
