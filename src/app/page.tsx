@@ -58,7 +58,6 @@ export default function Home() {
         animate="animate"
       >
         <Grid
-        border={1}
           container
           maxWidth={"1370px"}
           justifyContent={"space-between"}
@@ -347,7 +346,7 @@ export default function Home() {
                   display={"flex"}
                   component={Paper}
                   elevation={2}
-                  py={6.5}
+                  py={5.5}
                   px={5}
                   borderRadius={3}
                   gap={10}
@@ -457,7 +456,7 @@ export default function Home() {
                   flexDirection={"column"}
                   component={Paper}
                   width={"100%"}
-                  height={"300px"}
+                  height={"225px"}
                   p={2}
                   gap={2}
                   borderRadius={4}
@@ -478,7 +477,7 @@ export default function Home() {
                     <Image
                       src={"/assets/productivity.png"}
                       alt="profile"
-                      width={250}
+                      width={200}
                       height={120}
                       style={{
                         position: "absolute",
