@@ -1,6 +1,6 @@
 "use client";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Paper, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
 import { Footer } from "@/components/Footer/page";
@@ -9,6 +9,8 @@ import { cardBg, cardBgLight } from "@/styles/customStyles";
 
 const AboutMe: React.FC = () => {
   const { isDarkMode } = useThemeContext();
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <>
@@ -18,9 +20,12 @@ const AboutMe: React.FC = () => {
         maxWidth={"1320px"}
         margin={"auto"}
         mt={"4rem"}
+        p={2}
         alignItems={"flex-start"}
         spacing={3}
+        sx={{boxSizing:'border-box'}}
       >
+        {!isMobile && (
         <Grid size={{ lg: 4, md: 5, sm: 12 }}>
           <Box
             display={"flex"}
@@ -62,26 +67,29 @@ const AboutMe: React.FC = () => {
             </Box>
           </Box>
         </Grid>
+        )}
 
         {/* righ side top text */}
         <Grid
-          size={{ lg: 8, md: 7, sm: 12 }}
+          size={{ lg: 8, md: 7, sm: 12,xs:12 }}
           display={"flex"}
           flexDirection={"column"}
           alignItems={"center"}
           // border={1}
         >
           {/* text  */}
+          {!isMobile && (
           <Box
             display={"flex"}
             alignItems={"center"}
+            justifyContent={isMobile?'left':''}
             // gap={1}
           >
             <Box>
               <MilitaryTechIcon sx={{ fontSize: "6em" }} color="disabled" />
             </Box>
             <Box>
-              <Typography fontSize={"6rem"} fontWeight={600}>
+              <Typography fontSize={isMobile?25:"6rem"} fontWeight={600}>
                 Self-Summary
               </Typography>
             </Box>
@@ -89,12 +97,15 @@ const AboutMe: React.FC = () => {
               <MilitaryTechIcon sx={{ fontSize: "6em" }} color="disabled" />
             </Box>
           </Box>
+          )}
 
           {/* right top second card */}
           <Box
             width={"100%"}
             display={"flex"}
             alignItems={"center"}
+            textAlign={isMobile?'center':'left'}
+            flexDirection={isMobile?'column':'row'}
             component={Paper}
             elevation={2}
             padding={3}
@@ -105,14 +116,16 @@ const AboutMe: React.FC = () => {
             }}
           >
             <Box width={"80%"} display={"flex"} flexDirection={"column"}>
-              <Typography fontSize={"2.7rem"} fontWeight={600}>
+              <Typography fontSize={isMobile?'1.9rem':"2.7rem"} fontWeight={600}>
                 Tarang Harsh
               </Typography>
-              <Typography variant="caption" fontSize={17}>
+              <Typography variant="caption" fontSize={17} sx={{textAlign:"center"}}>
                 I am motivated full-stack developer experienced in building web
                 applications using React.js,Next.js, Node.js + expressJS,
                 TypeORM, and MYSQL. I am Jodhpur based Web-Developer mostly
                 focus on web apps, better design, clean code. <br />
+                Sometimes i edit video, part time memer, full time coder, just a curious coder,
+                trying to chill when the app in production
                 <span
                   style={{
                     fontSize: 15,
