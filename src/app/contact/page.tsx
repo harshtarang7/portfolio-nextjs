@@ -155,13 +155,14 @@ const Contact = () => {
 
   return (
     <>
-      <Grid container maxWidth={"1320px"} margin={"auto"} mt={"4rem"}>
+      <Grid container maxWidth={"1320px"} margin={"auto"} mt={"4rem"}  padding={isMobile?2:0}>
         <Grid
           container
           display={"flex"}
           flexDirection={"column"}
           gap={2}
           size={{ lg: 4 }}
+         
         >
           {ContactData.map((item, index) => {
             return (
