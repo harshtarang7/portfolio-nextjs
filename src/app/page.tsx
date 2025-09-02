@@ -5,6 +5,8 @@ import {
   Grid,
   Paper,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Image from "next/image";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
@@ -16,6 +18,9 @@ import ResumeDownload from "@/components/Resume";
 
 export default function Home() {
   const { isDarkMode } = useThemeContext();
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  
 
   const cardVariants = {
     initial: {
@@ -65,6 +70,7 @@ export default function Home() {
           margin={"auto"}
           mt={4}
           spacing={2}
+          p={2}
         >
           {/* top part */}
           <Grid container size={{ lg: 12 }}>
@@ -72,6 +78,7 @@ export default function Home() {
               <motion.div variants={cardVariants}>
                 <Box
                   display={"flex"}
+                  flexDirection={isMobile?'column':'row'}
                   component={Paper}
                   elevation={2}
                   padding={3}
@@ -83,7 +90,7 @@ export default function Home() {
                 >
                   <Box
                     sx={{
-                      width: "45%",
+                      width: { xs: "100%", sm: "45%" },
                       display: "flex",
                       justifyContent: "center",
                       borderRadius: "15% 0px 15% 0px",
@@ -92,6 +99,7 @@ export default function Home() {
                         : "linear-gradient(217deg, #ffe7c6ff, #fab29eff 70.71%)",
                       overflow: "hidden",
                       position: "relative",
+                      minHeight: { xs: 100, sm: 120 },
                     }}
                   >
                     <Image
@@ -101,20 +109,28 @@ export default function Home() {
                       height={120}
                       style={{
                         position: "relative",
-                        top: 25,
+                        top: 35,
+                        width: "100%",
+                        height: "auto",
+                        maxWidth: 120,
+                        maxHeight: 220,
                       }}
                     />
                   </Box>
 
-                  <Box display={"flex"} flexDirection={"column"} pt={4}>
-                    <Typography
+                  <Box display={"flex"} flexDirection={"column"} pt={isMobile?0:4}>
+                    
+                    {
+                      !isMobile && (
+                        <>
+                        <Typography
                       fontSize={18}
                       color="textSecondary"
                       fontWeight={600}
                     >
                       Full-Stack Web Developer
                     </Typography>
-                    <Typography variant="h1">Tarang Harsh</Typography>
+                    <Typography variant="h1" >Tarang Harsh</Typography>
                     <Typography
                       variant="body2"
                       fontSize={17}
@@ -126,6 +142,21 @@ export default function Home() {
                       create content sometimes Based in{" "}
                       <strong>Jodhpur, Rajasthan.</strong>
                     </Typography>
+                        </>
+                      )
+                    }
+                    {isMobile && (
+                      <Box textAlign={'center'}>
+                        <Typography variant="h1" fontSize={35} >Tarang Harsh</Typography>
+                        <Typography
+                      fontSize={14}
+                      color="textSecondary"
+                      fontWeight={600}
+                    >
+                      Full-Stack Web Developer
+                    </Typography>
+                      </Box>
+                    )}
                   </Box>
                 </Box>
               </motion.div>
@@ -171,6 +202,7 @@ export default function Home() {
                     display={"flex"}
                     justifyContent={"space-between"}
                     alignItems={"center"}
+                    flexDirection={isMobile?'column':'row'}
                   >
                     <Typography variant="body2" fontSize={19}>
                       More about me
@@ -224,6 +256,7 @@ export default function Home() {
                     display={"flex"}
                     justifyContent={"space-between"}
                     alignItems={"center"}
+                    flexDirection={isMobile?'column':'row'}
                   >
                     <Typography variant="body2" fontSize={19}>
                       More about my work
@@ -242,7 +275,7 @@ export default function Home() {
 
           {/* middle  */}
           <Grid container size={{ lg: 12 }}>
-            <Grid size={{ lg: 3 ,sm:12}}>
+            <Grid size={{ lg: 3 ,sm:12,xs:12}}>
               <motion.div variants={cardVariants}>
                 <Box
                   display={"flex"}
@@ -339,7 +372,8 @@ export default function Home() {
               </motion.div>
             </Grid>
 
-            <Grid size={{ lg: 6, md: 12, sm:12 }}>
+            {!isMobile && (
+            <Grid size={{ lg: 6, md: 12, sm:12 }} border={1}>
               {/* service section  */}
               <motion.div variants={cardVariants}>
                 <Box
@@ -356,6 +390,7 @@ export default function Home() {
                   }}
                 >
                   <Box
+                  
                     display={"flex"}
                     flexDirection={"column"}
                     justifyContent={"center"}
@@ -448,8 +483,9 @@ export default function Home() {
                 </Box>
               </motion.div>
             </Grid>
+            )}
 
-            <Grid size={{ lg: 3,sm:12 }} display={"flex"} gap={2}>
+            <Grid size={{ lg: 3,sm:12,xs:12 }} display={"flex"} gap={2}>
               <motion.div variants={cardVariants} style={{ width: "100%" }}>
                 <Box
                   display={"flex"}
