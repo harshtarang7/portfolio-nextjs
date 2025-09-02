@@ -29,7 +29,7 @@ import { cardBg, cardBgLight } from "@/styles/customStyles";
 export const AboutMeTabs = () => {
   const [value, setValue] = useState<number>(0);
   const { isDarkMode } = useThemeContext();
-    const theme = useTheme()
+  const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box width={"100%"}>

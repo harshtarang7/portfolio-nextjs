@@ -9,12 +9,16 @@ import {
   Paper,
   TextField,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { ContactData } from "./contactData";
 import { useThemeContext } from "@/customTheme/ThemeProvider";
 import { useState } from "react";
 const Contact = () => {
   const { isDarkMode } = useThemeContext();
+  const theme = useTheme()
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const [formData, setFormData] = useState({
     name: "",
@@ -166,7 +170,9 @@ const Contact = () => {
                 display={"flex"}
                 justifyContent={"space-between"}
                 alignItems={"center"}
+                flexDirection={isMobile?'column':'row'}
                 p={2}
+                textAlign={isMobile?'center':'left'}
                 borderRadius={4}
                 gap={3}
               >
